@@ -36,21 +36,21 @@ You are to start with the initial application provided. To find out the endpoint
 
 ## Instructions
 
-* [ ] Please fork and clone this repository.
-* [ ] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
-* [ ] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use!
-* [ ] Note that all of the users' passwords are "LambdaLlama".
-* [ ] Note that For the final project, passwords in the data.sql file will need to be converted to BCrypt! To convert Bcrypt, you can use the website [https://bcrypt-generator.com/](https://bcrypt-generator.com/). Once you have the BCrypt string, you will replace LambdaLlama with that BCrypt string.
+* [*] Please fork and clone this repository.
+* [*] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
+* [*] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use!
+* [*] Note that all of the users' passwords are "LambdaLlama".
+* [*] Note that For the final project, passwords in the data.sql file will need to be converted to BCrypt! To convert Bcrypt, you can use the website [https://bcrypt-generator.com/](https://bcrypt-generator.com/). Once you have the BCrypt string, you will replace LambdaLlama with that BCrypt string.
 
 ### MVP
 
-* [ ] Add OAuth2 Security to the application
-  * [ ] Add the necessary dependencies
-  * [ ] Update User model as appropriate
-  * [ ] Add findByName to the User Service with associated repository entry
-  * [ ] Add the necessary helper functions
-  * [ ] Add the SecurityUserService service
-  * [ ] Add and update the necessary configuration files
+* [*] Add OAuth2 Security to the application
+  * [*] Add the necessary dependencies
+  * [*] Update User model as appropriate
+  * [*] Add findByName to the User Service with associated repository entry
+  * [*] Add the necessary helper functions
+  * [*] Add the SecurityUserService service
+  * [*] Add and update the necessary configuration files
 * [ ] The initial endpoints are affected by security as follows
   * [ ] Only admins can access routes /roles/**
   * [ ] Only admins can access routes /products/**

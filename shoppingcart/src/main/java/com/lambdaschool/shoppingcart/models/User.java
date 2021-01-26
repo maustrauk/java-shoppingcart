@@ -178,6 +178,10 @@ public class User
         this.password = passwordEncoder.encode(password);
     }
 
+    public void setPasswordNoEncrypt(String password) {
+        this.password =password;
+    }
+
     /**
      * Getter for user role combinations
      *

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -148,6 +150,7 @@ public class UserController
      * @return status of OK
      * @see UserService#save(User) UserService.save(User)
      */
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @PutMapping(value = "/user/{userid}",
         consumes = "application/json")
     public ResponseEntity<?> updateFullUser(
@@ -194,6 +197,7 @@ public class UserController
      * @param id the primary key of the user you wish to delete
      * @return Status of OK
      */
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @DeleteMapping(value = "/user/{id}")
     public ResponseEntity<?> deleteUserById(
         @PathVariable
@@ -201,5 +205,14 @@ public class UserController
     {
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getuserinfo", produces = "application/json")
+    public  ResponseEntity<?> getCurrentUserInfo() {
+        String uname = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        User u = userService.findByName(uname);
+
+        return new ResponseEntity<>(u, HttpStatus.OK);
     }
 }
