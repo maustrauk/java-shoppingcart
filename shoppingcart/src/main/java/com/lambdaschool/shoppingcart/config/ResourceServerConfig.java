@@ -28,12 +28,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "webjars/**",
                         "/createnewuser")
                 .permitAll()
-                .antMatchers("/roles/**")
+                .antMatchers("/roles/**", "products/**")
                 .hasAnyRole("ADMIN")
                 .antMatchers("users/**", "/logout")
                 .authenticated()
                 .antMatchers("/useremails/**")
                 .hasAnyRole("ADMIN", "DATA")
+                .antMatchers("/carts/**")
+                .authenticated()
                 .and()
                 .exceptionHandling()
                 .accessDeniedHandler(new OAuth2AccessDeniedHandler());

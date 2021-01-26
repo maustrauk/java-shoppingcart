@@ -51,21 +51,21 @@ You are to start with the initial application provided. To find out the endpoint
   * [*] Add the necessary helper functions
   * [*] Add the SecurityUserService service
   * [*] Add and update the necessary configuration files
-* [ ] The initial endpoints are affected by security as follows
-  * [ ] Only admins can access routes /roles/**
-  * [ ] Only admins can access routes /products/**
-  * [ ] Only admins can access routes
-    * [ ] POST /users/user
-    * [ ] DELETE /users/user/{id}
-    * [ ] PUT /users/user/{id}
-    * [ ] GET /users/user/name/{userName}
-    * [ ] GET /users/user/name/like/{userName}
-    * [ ] GET /users/user
-    * [ ] PATCH /users/user/{id}
-    * [ ] GET /users/user/{userId} 
-  * [ ] For the routes /carts/**
-    * [ ] Remove the user/{userid} path variable from all the routes
-    * [ ] Use the authenticated as the user to work with
+* [*] The initial endpoints are affected by security as follows
+  * [*] Only admins can access routes /roles/**
+  * [*] Only admins can access routes /products/**
+  * [*] Only admins can access routes
+    * [*] POST /users/user
+    * [*] DELETE /users/user/{id}
+    * [*] PUT /users/user/{id}
+    * [*] GET /users/user/name/{userName}
+    * [*] GET /users/user/name/like/{userName}
+    * [*] GET /users/user
+    * [*] PATCH /users/user/{id}
+    * [*] GET /users/user/{userId} 
+  * [*] For the routes /carts/**
+    * [*] Remove the user/{userid} path variable from all the routes
+    * [*] Use the authenticated as the user to work with
 
 ### Stretch Goals
 

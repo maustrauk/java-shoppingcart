@@ -53,6 +53,8 @@ public class UserController
      * @return JSON object of the user you seek
      * @see UserService#findUserById(long) UserService.findUserById(long)
      */
+
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @GetMapping(value = "/user/{userId}",
         produces = "application/json")
     public ResponseEntity<?> getUserById(
@@ -72,6 +74,7 @@ public class UserController
      * @return JSON object of the user you seek
      * @see UserService#findByName(String) UserService.findByName(String)
      */
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @GetMapping(value = "/user/name/{userName}",
         produces = "application/json")
     public ResponseEntity<?> getUserByName(
@@ -91,6 +94,7 @@ public class UserController
      * @return A JSON list of users you seek
      * @see UserService#findByNameContaining(String) UserService.findByNameContaining(String)
      */
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @GetMapping(value = "/user/name/like/{userName}",
         produces = "application/json")
     public ResponseEntity<?> getUserLikeName(
@@ -113,6 +117,7 @@ public class UserController
      * @throws URISyntaxException Exception if something does not work in creating the location header
      * @see UserService#save(User) UserService.save(User)
      */
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @PostMapping(value = "/user",
         consumes = "application/json")
     public ResponseEntity<?> addNewUser(
@@ -177,6 +182,7 @@ public class UserController
      * @return A status of OK
      * @see UserService#update(User, long) UserService.update(User, long)
      */
+    @PreAuthorize(value = "hasAnyRole('ADMIN')")
     @PatchMapping(value = "/user/{id}",
         consumes = "application/json")
     public ResponseEntity<?> updateUser(

@@ -7,6 +7,8 @@ import com.lambdaschool.shoppingcart.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,25 +21,32 @@ public class CartController
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/user/{userid}",
+    private long userid;
+
+    private long setId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        return userService.findByName(currentUserName).getUserid();
+    }
+
+    @GetMapping(value = "/",
         produces = {"application/json"})
     public ResponseEntity<?> listCartItemsByUserId(
-        @PathVariable
-            long userid)
+        )
     {
+        userid = this.setId();
         User u = userService.findUserById(userid);
         return new ResponseEntity<>(u,
             HttpStatus.OK);
     }
 
-    @PutMapping(value = "/add/user/{userid}/product/{productid}",
+    @PutMapping(value = "/add/product/{productid}",
         produces = {"application/json"})
     public ResponseEntity<?> addToCart(
         @PathVariable
-            long userid,
-        @PathVariable
             long productid)
     {
+        userid = this.setId();
         CartItem addCartTtem = cartItemService.addToCart(userid,
             productid,
             "I am not working");
@@ -45,14 +54,13 @@ public class CartController
             HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/remove/user/{userid}/product/{productid}",
+    @DeleteMapping(value = "/remove/product/{productid}",
         produces = {"application/json"})
     public ResponseEntity<?> removeFromCart(
         @PathVariable
-            long userid,
-        @PathVariable
             long productid)
     {
+        userid = this.setId();
         CartItem removeCartItem = cartItemService.removeFromCart(userid,
             productid,
             "I am still not working");
