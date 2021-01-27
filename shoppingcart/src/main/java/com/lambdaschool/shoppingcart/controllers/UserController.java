@@ -213,7 +213,7 @@ public class UserController
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/getuserinfo", produces = "application/json")
+    @GetMapping(value = "/myinfo", produces = "application/json")
     public  ResponseEntity<?> getCurrentUserInfo() {
         String uname = SecurityContextHolder.getContext().getAuthentication().getName();
 

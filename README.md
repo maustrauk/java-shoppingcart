@@ -69,9 +69,9 @@ You are to start with the initial application provided. To find out the endpoint
 
 ### Stretch Goals
 
-* [ ] Add new endpoints
-  * [ ] http://localhost:2019/users/myinfo
-    * [ ] Any authenticated user can access this endpoint and it will return the authenticated users information
+* [*] Add new endpoints
+  * [*] http://localhost:2019/users/myinfo
+    * [*] Any authenticated user can access this endpoint and it will return the authenticated users information
   * [ ] http://localhost:2019/logout
     * [ ] Allows a user to logout of the system by removing their access token from the token store
   * [ ] Address CORS
